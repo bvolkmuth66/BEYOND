@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>The Limit You Feel Isn’t Always the Limit You Have | BEYOND 01</title>
+
+<meta name="description"
+      content="Sometimes the voice telling us to stop isn’t warning us that we can’t continue. It may be asking us to return to somewhere comfortable.">
+
+<meta name="author" content="Brian Volkmuth">
+
+<meta property="og:type" content="article">
+<meta property="og:title"
+      content="The Limit You Feel Isn’t Always the Limit You Have">
+<meta property="og:description"
+      content="A reflection on real limits, perceived limits, and learning to tell the difference.">
+<meta property="og:image" content="beyond-01-hero.png">
+
+<style>
+:root {
+  --navy: #17212B;
+  --amber: #D99A3D;
+  --ivory: #F5F1E8;
+  --ink: #20272D;
+  --slate: #64727D;
+  --blue: #536775;
+  --sage: #66766E;
+
+  --reading: 720px;
+  --wide: 1180px;
+
+  --display: Georgia, "Times New Roman", serif;
+  --ui: system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--ivory);
+  color: var(--ink);
+  font-family: var(--display);
+  font-size: 18px;
+  line-height: 1.68;
+}
+
+a {
+  color: inherit;
+}
+
+/* =========================================
+   BEYOND MASTHEAD
+   ========================================= */
+
+.mast {
+  background: var(--navy);
+  color: #fff;
+  padding: 16px 24px;
+}
+
+.mast-inner {
+  max-width: var(--wide);
+  margin: auto;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  justify-content: space-between;
+}
+
+.brand {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  color: var(--amber);
+}
+
+.tagline {
+  font-style: italic;
+  color: #e6e0d5;
+  font-size: 14px;
+  flex: 1;
+}
+
+.nav {
+  font-family: var(--ui);
+  font-size: 12px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  display: flex;
+  gap: 20px;
+}
+
+/* =========================================
+   HERO
+   ========================================= */
+
+.hero {
+  min-height: 610px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(23,33,43,.08) 20%,
+      rgba(23,33,43,.84) 72%
+    ),
+    url("beyond-01-hero.png") center / cover no-repeat;
+
+  display: flex;
+  align-items: flex-end;
+}
+
+.hero-inner {
+  width: 100%;
+  max-width: var(--wide);
+  margin: auto;
+  padding: 80px 34px 62px;
+
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hero-copy {
+  max-width: 620px;
+  color: white;
+  text-shadow: 0 2px 12px rgba(0,0,0,.45);
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  font: 700 13px/1 var(--ui);
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+.line {
+  height: 3px;
+  background: var(--amber);
+  width: 140px;
+}
+
+h1 {
+  font-size: clamp(2.55rem, 5vw, 4.4rem);
+  line-height: 1.02;
+  margin: 24px 0 18px;
+  letter-spacing: -.03em;
+}
+
+.deck {
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  font-style: italic;
+  line-height: 1.45;
+  margin: 0 0 24px;
+}
+
+.meta {
+  font: 600 13px/1.3 var(--ui);
+  color: #f2eee7;
+  letter-spacing: .03em;
+}
+
+/* =========================================
+   ARTICLE
+   ========================================= */
+
+main {
+  max-width: var(--reading);
+  margin: 0 auto;
+  padding: 78px 24px 96px;
+}
+
+p {
+  margin: 0 0 1.3em;
+}
+
+.opening p:first-child:first-letter {
+  color: var(--amber);
+  float: left;
+  font-size: 4.6rem;
+  line-height: .78;
+  padding: .12em .08em 0 0;
+}
+
+.inner-thought {
+  font-style: italic;
+}
+
+h2 {
+  font-size: clamp(1.8rem, 4vw, 2.35rem);
+  line-height: 1.15;
+  color: var(--navy);
+  margin: 2.2em 0 .7em;
+}
+
+/* =========================================
+   REFLECTION STATEMENT
+   ========================================= */
+
+.reflection {
+  margin: 2.6em -70px;
+  padding: 30px 42px;
+
+  border-left: 5px solid var(--amber);
+  background: #e8e5df;
+
+  color: var(--navy);
+  font-size: 1.65rem;
+  font-style: italic;
+  line-height: 1.35;
+}
+
+/* =========================================
+   PULL QUOTE
+   ========================================= */
+
+blockquote {
+  margin: 3em -110px;
+  padding: 42px 70px;
+
+  border-top: 2px solid var(--amber);
+  border-bottom: 2px solid var(--amber);
+
+  font-size: 2rem;
+  line-height: 1.35;
+  text-align: center;
+  color: var(--navy);
+}
+
+/* =========================================
+   DISCERNMENT QUESTIONS
+   ========================================= */
+
+.questions {
+  margin: 2.2em 0;
+  padding: 28px 30px;
+
+  background: #ece7dc;
+  border-left: 4px solid var(--amber);
+}
+
+.questions p {
+  font-weight: 700;
+  color: var(--navy);
+  margin: .75em 0;
+}
+
+/* =========================================
+   I CAN'T PROGRESSION
+   ========================================= */
+
+.progression {
+  margin: 3em -120px;
+  padding: 34px;
+
+  background: var(--navy);
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+
+  color: white;
+  font-family: var(--ui);
+  text-align: center;
+}
+
+.step {
+  padding: 20px 10px;
+  border-top: 4px solid var(--slate);
+}
+
+.step:last-child {
+  background: var(--amber);
+  color: var(--navy);
+  border-top-color: #f5c97c;
+}
+
+.step strong {
+  display: block;
+  font-size: 1.12rem;
+  letter-spacing: .04em;
+}
+
+.step span {
+  display: block;
+  font-size: .75rem;
+  margin-top: 8px;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+}
+
+/* =========================================
+   CLOSING STATEMENT
+   ========================================= */
+
+.closing {
+  margin: 4em -100px 1em;
+  padding: 58px 65px;
+
+  background: var(--navy);
+  color: white;
+
+  font-size: 2rem;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.closing .line {
+  margin: 0 auto 24px;
+  width: 110px;
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+footer {
+  background: var(--navy);
+  color: #eee;
+  padding: 34px 24px;
+  font: 13px/1.5 var(--ui);
+}
+
+.footer-inner {
+  max-width: var(--wide);
+  margin: auto;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.word-count {
+  color: var(--amber);
+}
+
+:focus-visible {
+  outline: 3px solid var(--amber);
+  outline-offset: 4px;
+}
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 800px) {
+
+  body {
+    font-size: 17px;
+  }
+
+  .tagline,
+  .nav {
+    display: none;
+  }
+
+  .hero {
+    min-height: 650px;
+
+    background:
+      linear-gradient(
+        0deg,
+        rgba(23,33,43,.93),
+        rgba(23,33,43,.08) 70%
+      ),
+      url("beyond-01-hero.png") 35% center / cover no-repeat;
+  }
+
+  .hero-inner {
+    padding: 52px 22px 42px;
+    justify-content: flex-start;
+  }
+
+  .reflection,
+  blockquote,
+  .progression,
+  .closing {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  blockquote {
+    padding: 32px 22px;
+    font-size: 1.65rem;
+  }
+
+  .progression
