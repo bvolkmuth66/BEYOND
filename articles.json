@@ -1,0 +1,84 @@
+[
+  {
+    "number": "01",
+    "title": "The Limit You Feel Isn't Always the Limit You Have",
+    "description": "When should we respect a limit, and when should we test it?",
+    "url": "article01.html",
+    "image": "beyond-01-hero.png",
+    "imageAlt": "A traveler continuing along a rugged mountain trail with substantial terrain still ahead.",
+    "readTime": "4 min read",
+    "category": "Resilience",
+    "published": true
+  },
+  {
+    "number": "02",
+    "title": "Comfort Can Quietly Become a Cage",
+    "description": "When does comfort restore us, and when does it begin restricting us?",
+    "url": "article02.html",
+    "image": "beyond-02-hero.png",
+    "imageAlt": "A comfortable indoor reading space opening toward a path and distant landscape.",
+    "readTime": "4 min read",
+    "category": "Growth",
+    "published": true
+  },
+  {
+    "number": "03",
+    "title": "Do Something You're Not Sure You Can Do",
+    "description": "What might we discover by attempting something without knowing how it will turn out?",
+    "published": false
+  },
+  {
+    "number": "04",
+    "title": "Courage Doesn't Require Confidence",
+    "description": "Sometimes courage begins while doubt is still very much present.",
+    "published": false
+  },
+  {
+    "number": "05",
+    "title": "Stop Waiting Until You're Ready",
+    "description": "What if readiness comes after we begin rather than before?",
+    "published": false
+  },
+  {
+    "number": "06",
+    "title": "Failure Is Data",
+    "description": "What can failure tell us about our preparation, approach, and what to try next?",
+    "published": false
+  },
+  {
+    "number": "07",
+    "title": "Resilience Isn't Toughness",
+    "description": "What if resilience is more about adaptation and recovery than simply enduring more?",
+    "published": false
+  },
+  {
+    "number": "08",
+    "title": "Sometimes Resilience Means Changing Direction",
+    "description": "Persistence does not always mean continuing down the same path.",
+    "published": false
+  },
+  {
+    "number": "09",
+    "title": "I'm Not Extraordinary. I Just Tried.",
+    "description": "What if calling someone extraordinary causes us to underestimate ourselves?",
+    "published": false
+  },
+  {
+    "number": "10",
+    "title": "Small Hard Things Prepare Us for Big Hard Things",
+    "description": "How can manageable difficulty prepare us for challenges we do not get to choose?",
+    "published": false
+  },
+  {
+    "number": "11",
+    "title": "Someone May Be Borrowing Your Belief in Them",
+    "description": "Sometimes another person's confidence carries us until we can develop our own.",
+    "published": false
+  },
+  {
+    "number": "12",
+    "title": "You Are Not Too Old to Become Someone New",
+    "description": "Growth, learning, and reinvention do not belong only to the young.",
+    "published": false
+  }
+]
