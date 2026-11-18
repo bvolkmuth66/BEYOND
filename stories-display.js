@@ -1,8 +1,16 @@
 (() => {
   'use strict';
-  const ENDPOINT = 'https://lwnuzdymjszavqwfqriz.supabase.co/functions/v1/get-stories?article=1';
+
   const list = document.querySelector('#published-stories-list');
   if (!list) return;
+
+  const articleNumber = Number(list.dataset.articleNumber);
+  if (!Number.isInteger(articleNumber) || articleNumber < 1 || articleNumber > 12) {
+    list.textContent = 'Reader stories are unavailable for this article.';
+    return;
+  }
+
+  const ENDPOINT = `https://lwnuzdymjszavqwfqriz.supabase.co/functions/v1/get-stories?article=${articleNumber}`;
 
   const formatDate = (value) => {
     if (!value) return '';

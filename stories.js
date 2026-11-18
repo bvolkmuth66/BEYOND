@@ -5,6 +5,7 @@
   const form = document.querySelector('#beyond-story-form');
   if (!form) return;
 
+  const articleNumber = Number(form.dataset.articleNumber);
   const nameInput = form.querySelector('#story-display-name');
   const storyInput = form.querySelector('#story-text');
   const consentInput = form.querySelector('#story-consent');
@@ -23,6 +24,13 @@
     status.textContent = message;
     status.className = `story-status ${kind}`.trim();
   };
+
+  const validArticle = Number.isInteger(articleNumber) && articleNumber >= 1 && articleNumber <= 12;
+  if (!validArticle) {
+    setStatus('This article is not configured for story submissions.', 'error');
+    submitButton.disabled = true;
+    return;
+  }
 
   const updateCounter = () => {
     const words = countWords(storyInput.value);
@@ -78,7 +86,7 @@
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
-          article_number: 1,
+          article_number: articleNumber,
           display_name: displayName,
           story,
           turnstile_token: token
