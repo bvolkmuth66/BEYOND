@@ -14,6 +14,9 @@
 .hero{background:linear-gradient(90deg,rgba(23,33,43,.08) 20%,rgba(23,33,43,.84) 72%),url("beyond-01-hero.png") center/cover no-repeat}
 </style>
 <link rel="stylesheet" href="beyond.css">
+
+<link rel="stylesheet" href="stories.css">
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 <header class="mast"><div class="mast-inner"><a class="brand" href="index.html">BEYOND</a><div class="tagline">Thoughts on resilience, growth, and discovering what we're capable of.</div><nav class="nav"><a href="index.html#articles">Articles</a><a href="index.html#ahead">What's Ahead</a><a href="index.html#about">About</a></nav></div></header>
@@ -23,5 +26,25 @@
 <h2>Discomfort is not the same as danger</h2><p>I have avoided difficult classes, uncomfortable conversations, unfamiliar rooms, and opportunities I was not sure I could handle. Each can put me beyond comfortable but still well short of impossible.</p><p>That is an important place to spend some time.</p><p>But not every limit should be challenged. Pain can warn me that I am injured. Exhaustion can tell me I need rest. Responsibilities to other people constrain some choices. Sometimes stopping, changing direction, or saying <em>no</em> is the wiser decision.</p><p>So when I feel myself pulling back, I am trying to ask better questions.</p><div class="questions"><p>Is continuing likely to harm me or someone else, or is it simply going to make me uncomfortable?</p><p>Is there something I genuinely lack, or something I could learn?</p><p>Am I responding to evidence, or to fear about what might happen?</p><p>And perhaps the hardest one: If I stop here, am I protecting something important, or am I protecting myself from uncertainty?</p></div><p>Those questions do not guarantee the right answer. They are not supposed to. But they make it harder for me to mistake fear for wisdom.</p><p>Some boundaries protect us. They deserve respect. Others mostly protect our comfort.</p><p><strong>I am trying to get better at knowing which one I am standing in front of.</strong></p>
 <h2>Maybe “I can't” deserves a question mark</h2><p>When I catch myself thinking, <em>I can't do that</em>, I am trying to change the period to a question mark.</p><p><strong>I can't do that?</strong></p><p>Why not?</p><p>Maybe there is a legitimate answer. Or maybe I am afraid of failing, looking foolish, or discovering that I am not as capable as I hoped.</p><p>Those fears deserve examination, not automatic obedience.</p><div class="progression highlight-4"><div class="step"><strong>I CAN'T.</strong><span>Certainty</span></div><div class="step"><strong>I CAN'T?</strong><span>Question</span></div><div class="step"><strong>WHY NOT?</strong><span>Examination</span></div><div class="step"><strong>LET'S FIND OUT.</strong><span>Action</span></div><div class="step"><strong>LEARN</strong><span>Evidence</span></div></div><p>Failure does not necessarily prove I have found my limit. Sometimes it tells me my current preparation, approach, knowledge, or experience is not sufficient <strong>yet</strong>.</p><p>That is not a verdict.</p><p>That is information.</p>
 <h2>Go find out</h2><p>I do not believe I can do anything simply because I believe in myself. I have real limitations.</p><p>What I question is how often I have actually found them.</p><p>How many boundaries in my life have I tested, and how many have I simply accepted?</p><p>I can push a little farther when it makes sense. Take the class. Have the conversation. Apply for the opportunity. Try the thing I might fail at.</p><p>Not recklessly. Not because success is guaranteed. And not because stopping is weakness.</p><p>Sometimes the only way to discover what I am capable of is to venture beyond what I already know.</p><p>Maybe the goal is not to ignore my limits.</p><p>Maybe it is to make sure they are actually mine.</p><section class="closing"><div class="line"></div>You deserve to know whether the limit you have been living within is actually yours.</section></main>
+
+<section class="stories-section" aria-labelledby="stories-heading">
+  <div class="stories-panel">
+    <div class="stories-kicker">Stories from BEYOND</div>
+    <h2 id="stories-heading">What's your story?</h2>
+    <p class="stories-intro">Did this article remind you of a time when you discovered a limit wasn't where you thought it was? Share your experience in 500 words or fewer.</p>
+    <form id="beyond-story-form" class="story-form" novalidate>
+      <div class="story-field"><label for="story-display-name">Display name</label><input id="story-display-name" name="display_name" type="text" maxlength="80" autocomplete="name" required></div>
+      <div class="story-field"><label for="story-text">Your story</label><textarea id="story-text" name="story" required aria-describedby="story-word-count story-guidelines"></textarea><div class="story-counter"><span id="story-word-count">0 / 500 words</span><span id="story-remaining">500 remaining</span></div></div>
+      <div class="story-trap" aria-hidden="true"><label for="story-website">Website</label><input id="story-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+      <label class="story-consent" for="story-consent"><input id="story-consent" type="checkbox" required><span>I understand that my story may be publicly displayed on BEYOND.</span></label>
+      <p id="story-guidelines" class="story-guidelines"><strong>Keep it human.</strong> Stories containing abusive, threatening, hateful, sexually explicit, promotional, or substantially off-topic material will not be published. Please don't include private information about other people. Submissions may be reviewed before publication.</p>
+      <div class="turnstile-wrap"><div class="cf-turnstile" data-sitekey="0x4AAAAAAGG6TawpFP8l2P11" data-theme="light"></div></div>
+      <button class="story-submit" type="submit">Share My Story →</button>
+      <p id="story-status" class="story-status" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+<script src="stories.js" defer></script>
+
 <footer><div class="footer-inner"><div><strong>BEYOND</strong><br>Thoughts on resilience, growth, and discovering what we're capable of.</div><div class="footer-nav"><a href="index.html">All Articles</a></div></div></footer>
 </body></html>
