@@ -1,0 +1,50 @@
+# BEYOND: Supabase keep-alive
+#
+# Supabase pauses Free plan projects that have too little database activity
+# over 7 days. This workflow reads the published stories for Article 01
+# every 3 days through the public get-stories Edge Function, which queries
+# the stories table and counts as database activity.
+#
+# It uses no secrets: get-stories is the same public endpoint the article
+# pages already call, and it returns only published stories.
+#
+# Location in the repo:  .github/workflows/supabase-keepalive.yml
+# Run it by hand:        Actions tab -> Supabase keep-alive -> Run workflow
+#
+# If a run fails, GitHub emails the repository owner.
+# GitHub disables scheduled workflows in public repos after 60 days with no
+# commits; monthly article uploads keep it active.
+
+name: Supabase keep-alive
+
+on:
+  schedule:
+    # Every 3 days at 14:17 UTC (8:17 a.m. Central Standard Time)
+    - cron: "17 14 */3 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Read published stories from Supabase
+        run: |
+          set -euo pipefail
+          url="https://lwnuzdymjszavqwfqriz.supabase.co/functions/v1/get-stories?article=1"
+          for attempt in 1 2 3; do
+            status=$(curl -sS -o response.json -w "%{http_code}" --max-time 30 "$url" || echo "000")
+            if [ "$status" = "200" ] && grep -q '"success":true' response.json; then
+              echo "Supabase responded normally (attempt $attempt)."
+              exit 0
+            fi
+            echo "Attempt $attempt failed with HTTP $status. Retrying in 30 seconds..."
+            sleep 30
+          done
+          echo "Supabase did not respond normally after 3 attempts."
+          echo "Check the Supabase dashboard: the project may be paused."
+          cat response.json || true
+          exit 1
