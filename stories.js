@@ -46,6 +46,61 @@
   storyInput.addEventListener('input', updateCounter);
   updateCounter();
 
+  // Optional permission for a future book, journal, or collection, with an
+  // optional email shown only when that permission is given. Added by script so
+  // the article pages themselves don't need to change.
+  const EMAIL_PATTERN = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+
+  const style = document.createElement('style');
+  style.textContent = '.story-hint{margin:0;color:#64727D;font:12px/1.45 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}.story-optional{font-weight:400;color:#64727D}';
+  document.head.appendChild(style);
+
+  const collectionLabel = document.createElement('label');
+  collectionLabel.className = 'story-consent';
+  collectionLabel.htmlFor = 'story-collection-consent';
+  const collectionInput = document.createElement('input');
+  collectionInput.type = 'checkbox';
+  collectionInput.id = 'story-collection-consent';
+  collectionInput.setAttribute('aria-controls', 'story-contact-field');
+  collectionInput.setAttribute('aria-expanded', 'false');
+  const collectionText = document.createElement('span');
+  collectionText.append('BEYOND may also include my story in a future book, journal, or collection. ');
+  const optionalTag = document.createElement('span');
+  optionalTag.className = 'story-optional';
+  optionalTag.textContent = '(Optional)';
+  collectionText.append(optionalTag);
+  collectionLabel.append(collectionInput, collectionText);
+
+  const contactField = document.createElement('div');
+  contactField.className = 'story-field';
+  contactField.id = 'story-contact-field';
+  contactField.style.display = 'none';
+  const emailLabel = document.createElement('label');
+  emailLabel.htmlFor = 'story-contact-email';
+  emailLabel.textContent = 'Email address (optional)';
+  const emailInput = document.createElement('input');
+  emailInput.type = 'email';
+  emailInput.id = 'story-contact-email';
+  emailInput.autocomplete = 'email';
+  emailInput.inputMode = 'email';
+  emailInput.maxLength = 254;
+  emailInput.setAttribute('aria-describedby', 'story-contact-hint');
+  const emailHint = document.createElement('p');
+  emailHint.className = 'story-hint';
+  emailHint.id = 'story-contact-hint';
+  emailHint.textContent = "I'll contact you before your story appears in print. Your email is never shown on the site.";
+  contactField.append(emailLabel, emailInput, emailHint);
+
+  const consentRow = consentInput.closest('.story-consent') || consentInput.closest('label') || consentInput.parentElement;
+  consentRow.after(collectionLabel, contactField);
+
+  const updateContactField = () => {
+    const show = collectionInput.checked;
+    contactField.style.display = show ? '' : 'none';
+    collectionInput.setAttribute('aria-expanded', String(show));
+  };
+  collectionInput.addEventListener('change', updateContactField);
+
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
     setStatus('');
@@ -72,6 +127,13 @@
       consentInput.focus();
       return;
     }
+    const collectionConsent = collectionInput.checked;
+    const contactEmail = collectionConsent ? emailInput.value.trim() : '';
+    if (contactEmail && (contactEmail.length > 254 || !EMAIL_PATTERN.test(contactEmail))) {
+      setStatus('Please enter a valid email address, or leave it blank.', 'error');
+      emailInput.focus();
+      return;
+    }
     if (!token) {
       setStatus('Please complete human verification before submitting.', 'error');
       return;
@@ -89,7 +151,9 @@
           article_number: articleNumber,
           display_name: displayName,
           story,
-          turnstile_token: token
+          turnstile_token: token,
+          collection_consent: collectionConsent,
+          contact_email: contactEmail
         })
       });
       const result = await response.json().catch(() => ({}));
@@ -99,6 +163,7 @@
 
       form.reset();
       updateCounter();
+      updateContactField();
       window.turnstile?.reset?.();
       setStatus('Thank you. Your story has been received for review.', 'success');
     } catch (error) {
